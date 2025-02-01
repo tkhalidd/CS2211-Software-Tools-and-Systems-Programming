@@ -1,0 +1,21 @@
+# The MakeFile for Assignment5, by Tazrin Khalid.
+
+# Linking all object files to create the executable movieTheaterDB
+movieTheaterDB: movieTheaterDB.o movieTheaterDB_actor.o movieTheaterDB_movie.o
+	gcc -o movieTheaterDB movieTheaterDB.o movieTheaterDB_actor.o movieTheaterDB_movie.o
+
+# Compiling the main program file and generating its object file
+movieTheaterDB.o: movieTheaterDB.c movieTheaterDB.h movieTheaterDB_actor.h movieTheaterDB_movie.h
+	gcc -c movieTheaterDB.c
+
+# Compiling the actor-related functions file and generating its object file
+movieTheaterDB_actor.o: movieTheaterDB_actor.c movieTheaterDB.h movieTheaterDB_actor.h
+	gcc -c movieTheaterDB_actor.c
+
+# Compiling the movie-related functions file and generating its object file
+movieTheaterDB_movie.o: movieTheaterDB_movie.c movieTheaterDB.h movieTheaterDB_movie.h
+	gcc -c movieTheaterDB_movie.c
+
+# Rule to clean up compiled files
+clean:
+	rm -f movieTheaterDB movieTheaterDB.o movieTheaterDB_actor.o movieTheaterDB_movie.o

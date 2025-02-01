@@ -1,0 +1,24 @@
+﻿Files
+1. You could use “echo *” to view files. This works because the asterisk is a wildcard character that matches any character or sequence of characters in a filename. Since it is alone, it matches all files and directories in the current directory and will print those to the screen, effectively listing all files in the directory.
+2. Before the rm command you need to use the ‘-i’ command (stands for interactive). To ensure you are not prompted before a file or directory is removed you need to use the -f option (this stands for force).
+3. Rename is used for batch renaming files based on a pattern while mv is used for moving (or renaming) files or directories.
+4. ELF stands for "Executable and Linkable Format." It refers to the standard file format for executables, object code, shared libraries, and core dumps.
+5. ls -l shows the apparent size of the file, which is 0 because it doesn't contain any data, while du shows the disk usage, which is 1 block (usually 4KB) because that's the minimum space a file takes up on most filesystems.
+
+Directories
+1. You can use the -p option and then put the entire directory structure in one command:
+mkdir -p grandparent/parent/child 
+2. To create directories with spaces, enclose the directory name in quotes, like this: mkdir "my directory".
+To remove a directory with a space in its name, you can use quotes or escape characters. For example: rmdir "my directory" or rmdir my\ directory
+3. To create a directory with specific permissions (dr-x------), you can use:
+ mkdir -m 700 directory_name
+4. To return to the previous directory, you can use: cd -
+5. To determine the 6th folder in your stack after using pushd, you can use dirs +6 and then cd "$(dirs +6)"
+
+Permissions
+1. You use the ‘-v’ option: For example: chmod -v +x <filename>
+2. To set the ownership of file2 to match file1’s using chown, use: chown --reference=file1 file2
+3.    To display file permission, user ownership, and group ownership with stat, use the option: -c "%A %U %G" filename
+4. To grant group write permission but prevent moving, removing, or renaming a file, use: chmod g+w <filename>
+5. If u/g/o/a are omitted in symbolic mode, it means that the permission being modified is applied to all three classes (user, group, and others) by default. So chmod +x <filename> will add execute permission for all
+
